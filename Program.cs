@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using SAuto.API;
-using SAuto.Structures;
 using System;
 using System.Net;
 using System.Net.Http;
