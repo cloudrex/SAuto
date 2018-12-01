@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SAuto.API;
+using SAuto.Structures;
 using System;
 using System.Net;
 using System.Net.Http;
@@ -46,7 +47,17 @@ namespace SAuto
             client.SendAsync(request).ContinueWith(async (responseTask) =>
             {
                 Console.WriteLine("Response: {0}", responseTask.Result);
-                Console.WriteLine("Response body: {0}", await responseTask.Result.Content.ReadAsStringAsync());
+
+                string body = await responseTask.Result.Content.ReadAsStringAsync();
+
+                Console.WriteLine("Response body: {0}", body);
+
+                if (responseTask.Result.IsSuccessStatusCode)
+                {
+                    ApiResponse<GetUserByUsernameResponse> response = JsonConvert.DeserializeObject<ApiResponse<GetUserByUsernameResponse>>(body);
+
+                    Console.WriteLine("User is: {0}", JsonConvert.SerializeObject(response.Data.User));
+                }
             });
         }
     }
