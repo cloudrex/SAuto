@@ -18,7 +18,8 @@ namespace SAuto
 
         public static void Main(string[] args)
         {
-            Program.CreateRequest<GetUserByUsernamePayload>(ApiOperations.GetUserByUsername(Environment.GetEnvironmentVariable("TARGET_USERNAME")));
+            // Program.CreateRequest<GetUserByUsernamePayload>(ApiOperations.GetUserByUsername(Environment.GetEnvironmentVariable("TARGET_USERNAME")));
+            Program.CreateRequest<SendMessagePayload>(ApiOperations.SendMessage("hello world", "some thread id here"));
 
             // Don't stop
             Task.Delay(-1);

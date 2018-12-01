@@ -2,10 +2,15 @@
 
 namespace SAuto.API
 {
-    public struct Message
+    public struct MessageContent
     {
         [JsonProperty("body")]
         public string Body { get; set; }
+    }
+    public struct Message
+    {
+        [JsonProperty("content")]
+        public MessageContent Content { get; set; }
 
         [JsonProperty("messageType")]
         public string Type { get; set; }
