@@ -1,13 +1,35 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SAuto.API
 {
+    public struct Message
+    {
+        [JsonProperty("body")]
+        public string Body { get; set; }
+
+        [JsonProperty("messageType")]
+        public string Type { get; set; }
+
+        // TODO: Investigate type
+        [JsonProperty("parentId")]
+        public dynamic ParentId { get; set; }
+
+        [JsonProperty("threadId")]
+        public string ThreadId { get; set; }
+
+        [JsonProperty("threadType")]
+        public string ThreadType { get; set; }
+    }
+
     public struct GetUserByUsernamePayload
     {
         [JsonProperty("username")]
         public string Username { get; set; }
+    }
+
+    public struct SendMessagePayload
+    {
+        [JsonProperty("message")]
+        public Message Message { get; set; }
     }
 }

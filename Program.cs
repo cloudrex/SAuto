@@ -40,7 +40,7 @@ namespace SAuto
             client.BaseAddress = new Uri(API.API.BaseUrl);
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, API.API.BaseUrl);
+            HttpRequestMessage request = new HttpRequestMessage(operation.Method, API.API.BaseUrl);
 
             request.Content = new StringContent(JsonConvert.SerializeObject(operation), Encoding.UTF8, "application/json");
 

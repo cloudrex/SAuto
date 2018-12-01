@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Net.Http;
 
 namespace SAuto.API
 {
@@ -14,6 +15,6 @@ namespace SAuto.API
         public PayloadType Payload { get; set; }
 
         [JsonIgnore]
-        public RequestMethod Method { get; set; }
+        public HttpMethod Method { get; set; }
     }
 }
